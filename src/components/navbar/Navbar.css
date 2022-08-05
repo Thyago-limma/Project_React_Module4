@@ -58,17 +58,37 @@
     bottom: 0;
     right: 0;
   }
+
+  .Opcoes {
+    display: flex;
+  }
+  
+  .Paleta {
+    background: none;
+    border: none;
+  }
+  
+  .Paleta__icone {
+    cursor: pointer;
+  }
   
   @media (max-width: 1220px) {
     .Header {
       max-width: 720px;
     }
-  }
-  
+}
   @media (max-width: 840px) {
     .Header {
       max-width: 320px;
     }
+    .row {
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+  }
+  .Logo {
+    width: 100%;
+  }
   }
   
   @media (max-width: 400px) {
@@ -84,3 +104,4 @@
       font-size: 1.5em;
     }
   }
+
