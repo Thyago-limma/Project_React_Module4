@@ -3,7 +3,7 @@ import sacola from "assets/icons/sacola.svg";
 import paleta from "assets/icons/paleta2.svg";
 import logo from "assets/logo.svg";
 
-function Navbar(createPaleta) {
+function Navbar({createPaleta}) {
   return (
     <div className="Home__header Header">
       <div className="row">
