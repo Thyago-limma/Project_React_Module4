@@ -1,5 +1,5 @@
 import "./PaletaListaItem.css";
-import { ActionMode } from 'constants/index';
+import { ActionMode } from "constants/index";
 
 function PaletaListaItem({
   paleta,
@@ -8,7 +8,7 @@ function PaletaListaItem({
   onRemove,
   onAdd,
   clickItem,
-  mode
+  mode,
 }) {
   const removeButton = (canRender, index) =>
     Boolean(canRender) && (
@@ -29,13 +29,29 @@ function PaletaListaItem({
       <span className="PaletaListaItem__badge"> {quantidadeSelecionada} </span>
     );
 
-    const badgeAction = (canRender) => {
-      if (canRender) return (<span className="PaletaListaItem__tag"> { mode } </span>);
-    }
+  const badgeAction = (canRender) => {
+    if (canRender)
+      return (
+        <span
+          className={`PaletaListaItem__tag ${
+            mode === ActionMode.DELETAR && "PaletaListaItem__tag--deletar"
+          }`}
+        >
+          {" "}
+          {mode}{" "}
+        </span>
+      );
+  };
 
   return (
-    <div className={`PaletaListaItem ${mode !== ActionMode.NORMAL && 'PaletaListaItem--disable'}`}
-     onClick={() => clickItem(paleta.id)}>
+    <div
+      className={`
+      PaletaListaItem
+      ${mode !== ActionMode.NORMAL && "PaletaListaItem--disable"}
+      ${mode === ActionMode.DELETAR && "PaletaListaItem--deletar"}
+    `}
+      onClick={() => clickItem(paleta.id)}
+    >
       {badgeCounter(quantidadeSelecionada, index)}
       {badgeAction(mode !== ActionMode.NORMAL)}
       <div>
